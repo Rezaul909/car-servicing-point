@@ -8,7 +8,7 @@ const Header = () => {
       <Navbar fixed="top" bg="primary" variant="dark">
         <Container className="">
           <Navbar.Brand href="#home">
-            <img src={logo} height="40" width="120" alt="" />
+            <img src={logo} height="40" alt="" />
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
