@@ -14,14 +14,13 @@ const Experts = () => {
         {name:"Jone Kholil", id:"2", img: expert2},
         {name:"Jone Abraham", id:"3", img: expert3},
         {name:"Jone Rohim", id:"4", img: expert4},
-        {name:"Jone Karim", id:"5", img: expert5},
+        {name:"Jone Korim", id:"5", img: expert5},
         {name:"Jone Khushi", id:"6", img: expert6},
     ]
     return (
         <div>
-            <h1 className='text-center mt-5'>Our Experts</h1>
-            <div className="experts-container container mt-5">
-
+            <h1 className='text-center mt-5 text-primary'>Our Experts</h1>
+            <div className="experts-container container mt-5 ">
                 {
                     experts.map(expert=> <Expert
                         key={expert.id}

@@ -5,7 +5,7 @@ const Expert = ({expert}) => {
     const {name, img} = expert;
   return (
     <div className="">
-      <Card style={{ width: "18rem" }}>
+      <Card >
         <Card.Img variant="top" src={img} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
