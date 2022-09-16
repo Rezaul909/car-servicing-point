@@ -5,16 +5,16 @@ import logo from "../../../images/logo.png";
 
 const Header = () => {
   return (
-      <Navbar collapseOnSelect expand="lg" bg="dark" sticky="top" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" sticky="top" variant="dark" id="home">
         <Container>
           <Navbar.Brand href="#home">
-            <img src={logo} height="40" alt="" />
+            <img src={logo} height="50" alt="" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link href="home#services">Services</Nav.Link>
+              <Nav.Link href="home#experts">Experts</Nav.Link>
               <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
