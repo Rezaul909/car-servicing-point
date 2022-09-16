@@ -12,7 +12,7 @@ const Banner = () => {
     };
   
   return (
-    <div className="mt-5 pt-3">
+    <div className="">
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
           <img

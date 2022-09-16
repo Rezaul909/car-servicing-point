@@ -5,9 +5,9 @@ const Footer = () => {
     const year = today.getFullYear();
     const month = today.getMonth();
     const date = today.getDate();
-    const hours = today.getHours();
-    const minutes = today.getMinutes();
-    const seconds = today.getSeconds();
+    // const hours = today.getHours();
+    // const minutes = today.getMinutes();
+    // const seconds = today.getSeconds();
     return (
         <div className='text-center my-5'>
             <h4>Copyright &#64; {date}-{month}-{year}  </h4>
