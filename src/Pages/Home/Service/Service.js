@@ -15,7 +15,7 @@ const Service = (props) => {
             <h4> {name}</h4>
             <h5>Servicing Cost: ${price} </h5>
             <p><small>{description} </small></p>
-            <button onClick={()=>handleServiceDetails(id)} className='btn btn-primary '>BOOK : {name} </button>
+            <button onClick={()=>handleServiceDetails(id)} className='btn btn-primary d-block mx-auto'>BOOK : {name} </button>
         </div>
     );
 };

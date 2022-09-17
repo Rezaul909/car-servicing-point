@@ -3,6 +3,7 @@ import { Button, Form, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import SocialSignUp from "../SocialSignUp/SocialSignUp";
 
 const SignUp = () => {
   const nameRef = useRef("");
@@ -33,8 +34,9 @@ const SignUp = () => {
   }
 
   return (
-    <div className="w-25 mx-auto">
+    <div className="w-50 mx-auto">
       <h1 className="text-primary text-center mt-5">Sign Up</h1>
+      <div className="w-50 mx-auto">
       <Form onSubmit={handleFormSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
@@ -69,7 +71,7 @@ const SignUp = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button className="w-75 d-block mx-auto" variant="primary" type="submit">
           Sign Up
         </Button>{" "}
         <br />
@@ -97,7 +99,8 @@ const SignUp = () => {
           </button>
         </p>
       </Form>
-      {/* {error && <p>{error.massage}</p>} */}
+      </div>
+      <SocialSignUp></SocialSignUp>
     </div>
   );
 };
