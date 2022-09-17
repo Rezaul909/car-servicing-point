@@ -8,6 +8,8 @@ import ServiceDetails from './Pages/ServiceDetails/ServiceDetails';
 import NotFound from './Pages/Shared/NotFount/NotFound';
 import Login from './Pages/Register/Login/Login';
 import SignUp from './Pages/Register/SignUp/SignUp';
+import CheckOut from './Pages/CheckOut/CheckOut';
+import RequireAuth from './Pages/Register/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -21,6 +23,11 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signUp' element={<SignUp></SignUp>}></Route>
         <Route path='/service/:serviceId' element={<ServiceDetails></ServiceDetails>}></Route>
+        <Route path='/checkout' element={
+          <RequireAuth>
+            <CheckOut></CheckOut>
+          </RequireAuth>
+        }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

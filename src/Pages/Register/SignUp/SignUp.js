@@ -97,6 +97,7 @@ const SignUp = () => {
           </button>
         </p>
       </Form>
+      {/* {error && <p>{error.massage}</p>} */}
     </div>
   );
 };
