@@ -1,22 +1,24 @@
 import React from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { FaGoogle, FaFacebookSquare, FaGithub } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const SocialSignUp = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleUser, googleError] = useSignInWithGoogle(auth);
+    const [signInWithGithub, githubUser, githubError] = useSignInWithGithub(auth);
+
     const navigate = useNavigate();
 
-    if(user){
+    if(googleUser || githubUser){
         navigate('/home')
     }
 
     let errorMassage;
-    if (error) {
+    if (googleError || githubError) {
 
         errorMassage =  <div>
-            <p className="text-danger">Error: {error.message}</p>
+            <p className="text-danger">Error: {googleError?.message} {githubError?.massage}</p>
           </div>
       }
 
@@ -37,7 +39,7 @@ const SocialSignUp = () => {
         <button className="btn btn-info fs-5 my-2 px-5">
             <FaFacebookSquare size='1.5em' color="blue"></FaFacebookSquare> Facebook
         </button>
-        <button className="btn btn-info fs-5 my-2 px-5">
+        <button onClick={()=> signInWithGithub()} className="btn btn-info fs-5 my-2 px-5">
             <FaGithub size='1.5em'></FaGithub> GitHub
         </button>
       </div>
