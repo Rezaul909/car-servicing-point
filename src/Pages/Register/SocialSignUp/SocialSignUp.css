@@ -1,0 +1,14 @@
+.social-btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+@media only screen and (max-width:688px){
+    .social-btn-container{
+        display: flex;
+        flex-direction: column;
+    }
+}

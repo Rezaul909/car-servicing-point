@@ -1,4 +1,5 @@
 import React from "react";
+import './SocialSignUp.css';
 import { useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { FaGoogle, FaFacebookSquare, FaGithub } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -32,11 +33,11 @@ const SocialSignUp = () => {
         <div style={{height:'3px'}} className="bg-secondary border w-25"></div>
       </div>
 
-      <div className="mt-3 d-flex align-items-center justify-content-evenly">
+      <div className="mt-3 social-btn-container">
         <button onClick={()=> signInWithGoogle()} className="btn btn-info fs-5 my-2 px-5">
             <FaGoogle size='1.5em' color="blue"></FaGoogle> Google
         </button>
-        <button className="btn btn-info fs-5 my-2 px-5">
+        <button className="btn btn-info fs-5 my-3 px-5">
             <FaFacebookSquare size='1.5em' color="blue"></FaFacebookSquare> Facebook
         </button>
         <button onClick={()=> signInWithGithub()} className="btn btn-info fs-5 my-2 px-5">

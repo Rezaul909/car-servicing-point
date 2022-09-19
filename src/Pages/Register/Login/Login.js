@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import './Login.css';
 import { Button, Form, Spinner } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -34,9 +35,9 @@ const Login = () => {
   }
 
   return (
-    <div className="w-50 mx-auto ">
+    <div className="login-container">
       <h1 className="text-primary text-center mt-5">Login </h1>
-      <div className="w-50 mx-auto">
+      <div className="form-container">
         <Form onSubmit={handleFormSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

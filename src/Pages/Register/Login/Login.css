@@ -1,0 +1,39 @@
+.login-container{
+    width: 50%;
+    margin: 0 auto;
+    border: 2px solid lightgrey; 
+    border-radius: 15px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.form-container{
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+@media only screen and (max-width:688px) {
+    .login-container{
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .form-container{
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+}
+
+@media only screen and (min-width:689px) and (max-width:992px) {
+    .login-container{
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .form-container{
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+}

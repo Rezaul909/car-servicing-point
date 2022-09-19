@@ -34,9 +34,9 @@ const SignUp = () => {
   }
 
   return (
-    <div className="w-50 mx-auto">
+    <div className="login-container">
       <h1 className="text-primary text-center mt-5">Sign Up</h1>
-      <div className="w-50 mx-auto">
+      <div className="form-container">
       <Form onSubmit={handleFormSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
