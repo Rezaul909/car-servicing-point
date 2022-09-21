@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import './Login.css';
 import { Button, Form, Spinner } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import SocialSignUp from "../SocialSignUp/SocialSignUp";
@@ -10,8 +10,8 @@ const Login = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading] =useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
@@ -29,6 +29,12 @@ const Login = () => {
   const navigateToRegister = (e) => {
     navigate("/signUp");
   };
+
+  const resetPassword = async () =>{
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    alert('Sent email');
+  }
 
   if (user) {
     navigate(from, { replace: true });
@@ -61,9 +67,6 @@ const Login = () => {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
           <Button
             className="w-75 d-block mx-auto"
             variant="primary"
@@ -89,13 +92,23 @@ const Login = () => {
           <p className="mt-4">
             New to Car Doctor?{" "}
             <button
-              className="text-danger border-0 bg-white"
+              className="text-primary border-0 bg-white"
               onClick={navigateToRegister}
             >
               please register
             </button>{" "}
           </p>
+          
         </Form>
+        <p className="mt-4">
+            Forget Password?
+            <button
+              className="text-primary border-0 bg-white"
+              onClick={resetPassword}
+            >
+              Reset Password
+            </button>
+          </p>
       </div>
       <SocialSignUp></SocialSignUp>
     </div>
