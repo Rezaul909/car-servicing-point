@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import SocialSignUp from "../SocialSignUp/SocialSignUp";
 import { useState } from "react";
+
 
 const SignUp = () => {
   const nameRef = useRef("");
@@ -14,28 +15,28 @@ const SignUp = () => {
 
   const [agree, setAgree] = useState(false);
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, ] = 
+      useCreateUserWithEmailAndPassword(auth, {sendEmailVerification :true});
+  
+  const [updateProfile] = useUpdateProfile(auth);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const name = nameRef.current.value;
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    if(agree){
-      createUserWithEmailAndPassword(email, password);
-    }
-
-    // console.log(name, email, password);
+  const handleFormSubmit = async (e) => {
+      e.preventDefault();
+      const name = nameRef.current.value;
+      const email = emailRef.current.value;
+      const password = passwordRef.current.value;
+      
+      await createUserWithEmailAndPassword(email, password);
+      await updateProfile({ displayName:name});
+      navigate("/home");
   };
+  console.log(user);
 
   const navigateToLogin = (e) => {
     navigate("/login");
   };
 
-  if (user) {
-    navigate("/home");
-  }
+  
 
   return (
     <div className="login-container">

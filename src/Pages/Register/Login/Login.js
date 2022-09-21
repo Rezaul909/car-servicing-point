@@ -6,6 +6,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import SocialSignUp from "../SocialSignUp/SocialSignUp";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -32,8 +35,13 @@ const Login = () => {
 
   const resetPassword = async () =>{
     const email = emailRef.current.value;
-    await sendPasswordResetEmail(email);
-    alert('Sent email');
+    if(email){
+      await sendPasswordResetEmail(email);
+      toast('Sent email');
+    }
+    else{
+      toast('Please, enter a email');
+    }
   }
 
   if (user) {
@@ -111,6 +119,7 @@ const Login = () => {
           </p>
       </div>
       <SocialSignUp></SocialSignUp>
+      <ToastContainer />
     </div>
   );
 };
