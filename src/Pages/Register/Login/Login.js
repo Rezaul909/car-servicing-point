@@ -8,6 +8,7 @@ import SocialSignUp from "../SocialSignUp/SocialSignUp";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DynamicTitle from "../../Shared/DynamicTitle/DynamicTitle";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -50,6 +51,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
+      <DynamicTitle title='Login'></DynamicTitle>
       <h1 className="text-primary text-center mt-5">Login </h1>
       <div className="form-container">
         <Form onSubmit={handleFormSubmit}>

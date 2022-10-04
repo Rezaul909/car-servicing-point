@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-fireb
 import auth from "../../../firebase.init";
 import SocialSignUp from "../SocialSignUp/SocialSignUp";
 import { useState } from "react";
+import DynamicTitle from "../../Shared/DynamicTitle/DynamicTitle";
 
 
 const SignUp = () => {
@@ -40,6 +41,7 @@ const SignUp = () => {
 
   return (
     <div className="login-container">
+      <DynamicTitle title='SignUp'></DynamicTitle>
       <h1 className="text-primary text-center mt-5">Sign Up</h1>
       <div className="form-container">
       <Form onSubmit={handleFormSubmit}>
